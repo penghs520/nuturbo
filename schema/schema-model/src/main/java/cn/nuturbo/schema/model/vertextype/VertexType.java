@@ -21,7 +21,6 @@ public abstract class VertexType extends Schema<VertexTypeID> {
         this.permissionConfig = permissionConfig;
     }
 
-
     @Override
     public SchemaID belongTo() {
         return null;

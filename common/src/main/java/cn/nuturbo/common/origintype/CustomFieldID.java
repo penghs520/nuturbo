@@ -12,7 +12,7 @@ public final class CustomFieldID extends SchemaID implements FieldID {
     }
 
     @Override
-    SchemaType schemaType() {
+    public SchemaType schemaType() {
         return SchemaType.CustomField;
     }
 

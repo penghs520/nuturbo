@@ -22,7 +22,7 @@ public class TeamType extends VertexType {
 
     private final Set<VertexTypeID> inherits;
 
-    protected TeamType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
+    public TeamType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
         super(id, orgId, name, description, permissionConfig);
         Asserts.isTrue(VertexTypeID.isTeamType(id), "id of team type must be team type id.");
         this.inherits = inherits;

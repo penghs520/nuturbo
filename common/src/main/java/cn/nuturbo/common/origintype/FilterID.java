@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by penghs at 2023/11/21 15:51
  */
-public class FilterID extends Identity {
+public class FilterID extends SubassemblyID {
 
     @JsonCreator
     public FilterID(@JsonProperty("value") String value) {

@@ -15,7 +15,7 @@ public class VertexTypeID extends SchemaID {
     }
 
     @Override
-    SchemaType schemaType() {
+    public SchemaType schemaType() {
         return SchemaType.VertexType;
     }
 

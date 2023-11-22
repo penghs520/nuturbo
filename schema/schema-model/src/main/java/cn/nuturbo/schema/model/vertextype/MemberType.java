@@ -22,7 +22,7 @@ public class MemberType extends VertexType {
 
     private final Set<VertexTypeID> inherits;
 
-    protected MemberType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
+    public MemberType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
         super(id, orgId, name, description, permissionConfig);
         this.inherits = inherits;
         Asserts.isTrue(VertexTypeID.isMemberType(id), "id of member type must be member type id.");

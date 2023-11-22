@@ -20,7 +20,7 @@ public class RecordType extends VertexType {
 
     private final Set<VertexTypeID> inherits;
 
-    protected RecordType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
+    public RecordType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
         super(id, orgId, name, description, permissionConfig);
         this.inherits = inherits;
         Asserts.isTrue(VertexTypeID.isRecordType(id), "id of record type must be record type id.");

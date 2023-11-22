@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 public class AbstractType extends VertexType {
 
-    protected AbstractType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig) {
+    public AbstractType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig) {
         super(id, orgId, name, description, permissionConfig);
         Asserts.isTrue(VertexTypeID.isAbstractType(id), "id of abstract type must be abstract type id.");
     }

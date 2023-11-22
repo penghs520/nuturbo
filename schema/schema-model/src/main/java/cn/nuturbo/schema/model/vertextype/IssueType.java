@@ -21,7 +21,7 @@ public class IssueType extends VertexType {
 
     private final Set<VertexTypeID> inherits;
 
-    protected IssueType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
+    public IssueType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
         super(id, orgId, name, description, permissionConfig);
         this.inherits = inherits;
         Asserts.isTrue(VertexTypeID.isIssueType(id), "id of issue type must be issue type id.");

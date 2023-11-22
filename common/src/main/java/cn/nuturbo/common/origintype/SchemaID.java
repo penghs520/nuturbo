@@ -9,5 +9,5 @@ public abstract class SchemaID extends Identity {
         super(value);
     }
 
-    abstract SchemaType schemaType();
+    public abstract SchemaType schemaType();
 }
