@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
  * a & b
  * & (c | d) & (e | f)
  */
-@Getter
 public record Condition(List<ConditionItem<?, ?>> ands, List<LogicCondition> logics) {
 
     public Condition(List<ConditionItem<?, ?>> ands, List<LogicCondition> logics) {
