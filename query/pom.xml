@@ -14,7 +14,6 @@
 
     <modules>
         <module>query-model</module>
-        <module>query-client</module>
         <module>query-core</module>
     </modules>
 

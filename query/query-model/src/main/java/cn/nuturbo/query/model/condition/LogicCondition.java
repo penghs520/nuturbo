@@ -14,22 +14,21 @@ import java.util.stream.Collectors;
  */
 @Getter
 public class LogicCondition {
-    private final LogicalOperator logicalOperator;
-    private final List<ConditionItem<?, ?>> conditionItems;
 
-    public LogicCondition(LogicalOperator logicalOperator, List<ConditionItem<?, ?>> conditionItems) {
-        this.logicalOperator = Asserts.notNull(logicalOperator, "logicalOperator of LogicCondition can not be null.");
-        Asserts.notNull(conditionItems, "conditionItems of LogicCondition can not be null.");
-        this.conditionItems = conditionItems.stream().filter(Objects::nonNull).collect(Collectors.toList());
+    private final List<ConditionItem<?, ?>> logicItems;
+
+    public LogicCondition(List<ConditionItem<?, ?>> logicItems) {
+        Asserts.notNull(logicItems, "logicItems of LogicCondition can not be null.");
+        this.logicItems = logicItems.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
 
-    public static LogicCondition newInstance(LogicalOperator logicalOperator) {
-        return new LogicCondition(logicalOperator, Collections.emptyList());
+    public static LogicCondition newInstance() {
+        return new LogicCondition(Collections.emptyList());
     }
 
     public LogicCondition and(ConditionItem<?, ?> and) {
         if (and != null) {
-            conditionItems.add(and);
+            logicItems.add(and);
         }
         return this;
     }
