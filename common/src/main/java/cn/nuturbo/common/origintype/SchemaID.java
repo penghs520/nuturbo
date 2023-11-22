@@ -8,4 +8,6 @@ public abstract class SchemaID extends Identity {
     public SchemaID(String value) {
         super(value);
     }
+
+    abstract SchemaType schemaType();
 }

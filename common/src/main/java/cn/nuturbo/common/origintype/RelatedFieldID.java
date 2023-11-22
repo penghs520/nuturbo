@@ -2,7 +2,6 @@ package cn.nuturbo.common.origintype;
 
 import cn.nuturbo.common.utils.Asserts;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -21,9 +20,8 @@ public final class RelatedFieldID extends Identity implements FieldID {
         Asserts.isTrue(id.startsWith("fd:rs:") || id.endsWith(">") || id.endsWith("<"), () -> new IdentityFormattedException("RelatedFieldID 格式错误: %s".formatted(id)));
     }
 
-    @JsonIgnore
-    public RelationshipID getRelationshipID() {
-        return new RelationshipID(value().substring(3, value().length() - 1));
+    public String relationshipId() {
+        return value().substring(3, value().length() - 1);
     }
 
 }

@@ -14,7 +14,6 @@ import java.util.Set;
 public class Vertex {
     private final VertexID id;
     private final VertexTypeID vtId;
-    private final VertexKind vertexKind;
     private final Name name;
     private final OrgID orgId;
     private final String code;
@@ -26,15 +25,14 @@ public class Vertex {
     private final Map<FieldID, FieldValue> fieldValueMap;
     private final Map<Path, Set<Vertex>> relatedVertexMap;
 
-    public Vertex(VertexID id, VertexTypeID vtId, VertexKind vertexKind, Name name, OrgID orgId, String code, VertexState vertexState, IssueStatus issueStatus, Long createTime, Long updateTime, String discardReason, Map<FieldID, FieldValue> fieldValueMap, Map<Path, Set<Vertex>> relatedVertexMap) {
+    public Vertex(VertexID id, VertexTypeID vtId, Name name, OrgID orgId, String code, VertexState vertexState, IssueStatus issueStatus, Long createTime, Long updateTime, String discardReason, Map<FieldID, FieldValue> fieldValueMap, Map<Path, Set<Vertex>> relatedVertexMap) {
         this.id = Asserts.notNull(id, "id of vertex can not be null");
         this.vtId = Asserts.notNull(vtId, "vtId of vertex can not be null");
-        this.vertexKind = Asserts.notNull(vertexKind, "vertexKind of vertex can not be null");
         this.name = Asserts.notNull(name, "name of vertex can not be null");
         this.orgId = Asserts.notNull(orgId, "orgId of vertex can not be null");
         this.code = Asserts.notNull(code, "code of vertex can not be null");
         this.vertexState = Asserts.notNull(vertexState, "vertexState of vertex can not be null");
-        if (VertexKind.Issue.equals(vertexKind)) {
+        if (isIssueVertex()) {
             this.issueStatus = Asserts.notNull(issueStatus, "issueStatus of issue vertex can not be null");
         } else {
             this.issueStatus = null;
@@ -44,5 +42,9 @@ public class Vertex {
         this.discardReason = discardReason;
         this.fieldValueMap = fieldValueMap;
         this.relatedVertexMap = relatedVertexMap;
+    }
+
+    public boolean isIssueVertex() {
+        return VertexTypeID.isIssueType(vtId);
     }
 }

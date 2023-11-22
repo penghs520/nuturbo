@@ -15,7 +15,37 @@ public class VertexTypeID extends SchemaID {
     }
 
     @Override
+    SchemaType schemaType() {
+        return SchemaType.VertexType;
+    }
+
+    @Override
     protected void checkFormat(String id) throws IdentityFormattedException {
-        Asserts.isTrue(id.startsWith("vt:"), () -> new IdentityFormattedException("VertexTypeID 格式错误: %s".formatted(id)));
+        Asserts.isTrue(id.startsWith("vt-member:")
+                        || id.startsWith("vt-team:")
+                        || id.startsWith("vt-issue:")
+                        || id.startsWith("vt-record:")
+                        || id.startsWith("vt-abstract:")
+                , () -> new IdentityFormattedException("VertexTypeID 格式错误: %s".formatted(id)));
+    }
+
+    public static boolean isIssueType(VertexTypeID vtId) {
+        return vtId.value().startsWith("vt-issue:");
+    }
+
+    public static boolean isMemberType(VertexTypeID vtId) {
+        return vtId.value().startsWith("vt-member:");
+    }
+
+    public static boolean isTeamType(VertexTypeID vtId) {
+        return vtId.value().startsWith("vt-team:");
+    }
+
+    public static boolean isRecordType(VertexTypeID vtId) {
+        return vtId.value().startsWith("vt-record:");
+    }
+
+    public static boolean isAbstractType(VertexTypeID vtId) {
+        return vtId.value().startsWith("vt-abstract:");
     }
 }
