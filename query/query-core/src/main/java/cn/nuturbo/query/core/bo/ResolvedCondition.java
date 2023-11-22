@@ -1,4 +1,4 @@
-package cn.nuturbo.query.core;
+package cn.nuturbo.query.core.bo;
 
 import cn.nuturbo.query.model.condition.Condition;
 import cn.nuturbo.query.model.condition.LogicCondition;

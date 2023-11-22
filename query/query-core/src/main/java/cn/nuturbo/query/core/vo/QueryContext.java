@@ -1,4 +1,4 @@
-package cn.nuturbo.query.core;
+package cn.nuturbo.query.core.vo;
 
 import cn.nuturbo.common.origintype.OrgID;
 import cn.nuturbo.common.origintype.VertexID;

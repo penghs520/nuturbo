@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by penghs at 2023/11/21 15:55
  */
-public class RelatedFieldID extends FieldID {
+public final class RelatedFieldID extends Identity implements FieldID {
 
     @JsonCreator
     public RelatedFieldID(@JsonProperty("value") String value) {

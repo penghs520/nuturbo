@@ -1,5 +1,6 @@
 package cn.nuturbo.query.core;
 
+import cn.nuturbo.query.core.bo.ResolvedCondition;
 import cn.nuturbo.query.model.condition.Condition;
 import org.springframework.stereotype.Component;
 

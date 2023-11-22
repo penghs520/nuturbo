@@ -1,5 +1,8 @@
 package cn.nuturbo.query.core;
 
+import cn.nuturbo.query.core.bo.ResolvedReturn;
+import cn.nuturbo.query.core.vo.QueryContext;
+import cn.nuturbo.query.core.bo.ResolvedCondition;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class QueryBuilder {
 
 
-    public String buildQuery(QueryContext queryContext, ResolvedCondition condition) {
+    public String buildQuery(QueryContext queryContext, ResolvedCondition condition, ResolvedReturn resolvedReturn) {
         return null;
     }
 
