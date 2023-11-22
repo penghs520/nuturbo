@@ -5,16 +5,6 @@ import cn.nuturbo.common.origintype.Path;
 /**
  * Created by penghs at 2023/11/22 11:47
  */
-public non-sealed class ReferOnCurrentMember implements ReferOn {
+public record ReferOnCurrentMember(Path path) implements ReferOn {
 
-    private final Path path;
-
-    public ReferOnCurrentMember(Path path) {
-        this.path = path;
-    }
-
-    @Override
-    public Path getPath() {
-        return path;
-    }
 }

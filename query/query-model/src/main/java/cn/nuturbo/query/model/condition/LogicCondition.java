@@ -13,9 +13,7 @@ import java.util.stream.Collectors;
  * Created by penghs at 2023/11/22 12:07
  */
 @Getter
-public class LogicCondition {
-
-    private final List<ConditionItem<?, ?>> logicItems;
+public record LogicCondition(List<ConditionItem<?, ?>> logicItems) {
 
     public LogicCondition(List<ConditionItem<?, ?>> logicItems) {
         Asserts.notNull(logicItems, "logicItems of LogicCondition can not be null.");

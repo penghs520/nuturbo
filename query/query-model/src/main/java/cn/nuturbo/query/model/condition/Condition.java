@@ -15,10 +15,7 @@ import java.util.stream.Collectors;
  * & (c | d) & (e | f)
  */
 @Getter
-public class Condition {
-
-    private final List<ConditionItem<?, ?>> ands;
-    private final List<LogicCondition> logics;
+public record Condition(List<ConditionItem<?, ?>> ands, List<LogicCondition> logics) {
 
     public Condition(List<ConditionItem<?, ?>> ands, List<LogicCondition> logics) {
         this.ands = ands != null ? ands.stream().filter(Objects::nonNull).collect(Collectors.toList()) : new ArrayList<>();

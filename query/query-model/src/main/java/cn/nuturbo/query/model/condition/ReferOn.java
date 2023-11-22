@@ -8,6 +8,6 @@ import cn.nuturbo.common.origintype.Path;
 public sealed interface ReferOn
         permits ReferOnSelf, ReferOnCurrentMember {
 
-    Path getPath();
+    Path path();
 
 }
