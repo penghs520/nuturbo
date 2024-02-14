@@ -1,8 +1,8 @@
 package cn.nuturbo.schema.model.vertextype;
 
-import cn.nuturbo.common.origintype.OrgID;
-import cn.nuturbo.common.origintype.SchemaID;
-import cn.nuturbo.common.origintype.VertexTypeID;
+import cn.nuturbo.common.origintype.OrgId;
+import cn.nuturbo.common.origintype.SchemaId;
+import cn.nuturbo.common.origintype.CardTypeId;
 import cn.nuturbo.common.utils.Asserts;
 import cn.nuturbo.common.utils.CollectionUtils;
 import lombok.Getter;
@@ -20,16 +20,16 @@ import java.util.Set;
 @Setter
 public class TeamType extends VertexType {
 
-    private final Set<VertexTypeID> inherits;
+    private final Set<CardTypeId> inherits;
 
-    public TeamType(VertexTypeID id, OrgID orgId, String name, String description, PermissionConfig permissionConfig, Set<VertexTypeID> inherits) {
+    public TeamType(CardTypeId id, OrgId orgId, String name, String description, PermissionConfig permissionConfig, Set<CardTypeId> inherits) {
         super(id, orgId, name, description, permissionConfig);
-        Asserts.isTrue(VertexTypeID.isTeamType(id), "id of team type must be team type id.");
+        Asserts.isTrue(CardTypeId.isTeamType(id), "id of team type must be team type id.");
         this.inherits = inherits;
     }
 
     @Override
-    public List<SchemaID> secondaryIndexes() {
+    public List<SchemaId> secondaryIndexes() {
         if (CollectionUtils.isNotEmpty(inherits))
             return new ArrayList<>(inherits);
         return null;

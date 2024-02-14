@@ -1,14 +1,14 @@
 package cn.nuturbo.schema.repository;
 
-import cn.nuturbo.common.origintype.OrgID;
-import cn.nuturbo.common.origintype.SchemaID;
+import cn.nuturbo.common.origintype.OrgId;
+import cn.nuturbo.common.origintype.SchemaId;
 import cn.nuturbo.schema.model.Schema;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface SchemaRepository<T extends Schema<?>, ID extends SchemaID> {
+public interface SchemaRepository<T extends Schema<?>, ID extends SchemaId> {
 
     void create(T schemaEntity);
 
@@ -26,8 +26,8 @@ public interface SchemaRepository<T extends Schema<?>, ID extends SchemaID> {
 
     List<T> findByIds(Collection<ID> ids);
 
-    List<T> findByOrg(OrgID orgId);
+    List<T> findByOrg(OrgId orgId);
 
-    List<T> findByIndex(SchemaID indexId);
+    List<T> findByIndex(SchemaId indexId);
 
 }

@@ -13,10 +13,10 @@ import java.util.List;
 @Getter
 public class Path {
 
-    private final List<RelatedFieldID> segments;
+    private final List<RelationFieldId> segments;
 
     @JsonCreator
-    public Path(@JsonProperty("segments") List<RelatedFieldID> segments) {
-        this.segments = Asserts.notEmpty(segments, "segments of path can not be empty.");
+    public Path(@JsonProperty("segments") List<RelationFieldId> segments) {
+        this.segments = Asserts.notEmpty(segments, "segments can not be empty.");
     }
 }

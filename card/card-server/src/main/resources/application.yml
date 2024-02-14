@@ -1,0 +1,12 @@
+server:
+  port: 8081
+zookeeper:
+  address: 172.25.51.88:2181
+dubbo:
+  application:
+    name: card-server
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://${zookeeper.address:127.0.0.1:2181}

@@ -28,7 +28,7 @@ public abstract class Identity implements Serializable, SqlValue {
         return value;
     }
 
-    public static String getRandomId() {
+    public static String randomId() {
         return NanoID.random();
     }
 
