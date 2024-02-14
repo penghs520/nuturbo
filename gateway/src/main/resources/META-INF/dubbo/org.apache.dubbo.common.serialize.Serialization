@@ -1,0 +1,2 @@
+fastjson=org.apache.dubbo.common.serialize.fastjson2.FastJson2Serialization
+jackson=cn.nuturbo.dubbo.extension.JacksonSerialization

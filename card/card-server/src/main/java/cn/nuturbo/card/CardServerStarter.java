@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @EnableDubbo
-public class CardApplicationStarter {
+public class CardServerStarter {
     public static void main(String[] args) {
-        SpringApplication.run(CardApplicationStarter.class, args);
+        SpringApplication.run(CardServerStarter.class, args);
     }
 }

@@ -25,7 +25,8 @@ public class CardRemoteServiceProvider implements CardRemoteService {
     public Response<Card> createCard(CreateCardRequest createCardRequest) {
         //TODO 根据成员id拿到组织id
         OrgId orgId = new OrgId("org:1024");
-        Card newCard = cardFactory.newCard(createCardRequest.getCardName(), createCardRequest.getCardTypeId(), orgId);
+        Card newCard = cardFactory.newCard(createCardRequest.getCardName(), createCardRequest.getCardTypeId(), orgId)
+                .setDescription(createCardRequest.getDescription());
         return Response.success(newCard);
     }
 }
