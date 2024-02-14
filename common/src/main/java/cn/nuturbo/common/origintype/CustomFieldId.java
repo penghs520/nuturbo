@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 @JsonSerialize(keyUsing = CustomFieldId.Se.class)
 @JsonDeserialize(keyUsing = CustomFieldId.KeyDe.class)
-public final class CustomFieldId extends SchemaId {
+public final class CustomFieldId extends SchemaId implements FieldId {
 
     //for se/de
     private CustomFieldId() {

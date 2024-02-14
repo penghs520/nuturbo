@@ -1,5 +1,6 @@
 package cn.nuturbo.card.query.vo;
 
+import cn.nuturbo.common.origintype.FieldId;
 import cn.nuturbo.common.origintype.Path;
 import lombok.Getter;
 
@@ -14,6 +15,6 @@ public class Return {
 
     private Set<FieldId> fields;
 
-    private Map<Path, Set<FieldId>> fieldsOfRelatedVertex;
+    private Map<Path, Set<FieldId>> fieldsOfRelatedCard;
 
 }

@@ -5,7 +5,7 @@ import cn.nuturbo.common.utils.Asserts;
 /**
  * Created by penghs at 2023/11/21 15:55
  */
-public final class RelationFieldId extends Identity {
+public final class RelationFieldId extends Identity implements FieldId {
 
     //for se/de
     private RelationFieldId() {
