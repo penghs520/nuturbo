@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>schema</module>
-        <module>monitor</module>
+        <module>recorder</module>
         <module>view</module>
         <module>calculator</module>
         <module>gateway</module>
