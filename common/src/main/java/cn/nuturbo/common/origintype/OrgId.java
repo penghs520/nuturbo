@@ -9,8 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class OrgId extends Identity {
 
-    @JsonCreator
-    public OrgId(@JsonProperty("value") String value) {
+    //for se/de
+    private OrgId() {
+
+    }
+
+    public OrgId(String value) {
         super(value);
     }
 

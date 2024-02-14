@@ -1,15 +1,18 @@
 package cn.nuturbo.common.origintype;
+
 import cn.nuturbo.common.utils.Asserts;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by penghs at 2023/11/21 15:39
  */
 public class RelationTypeId extends Identity {
 
-    @JsonCreator
-    public RelationTypeId(@JsonProperty("value") String value) {
+    //for se/de
+    private RelationTypeId() {
+
+    }
+
+    public RelationTypeId(String value) {
         super(value);
     }
 

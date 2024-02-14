@@ -17,17 +17,9 @@ public class JacksonObjectInput implements ObjectInput {
 
     private final BufferedReader reader;
 
-    public JacksonObjectInput(InputStream input) {
-        this(new ObjectMapper(), input);
-    }
-
     public JacksonObjectInput(ObjectMapper objectMapper, InputStream input) {
-        this(objectMapper, new InputStreamReader(input));
-    }
-
-    public JacksonObjectInput(ObjectMapper objectMapper, Reader reader) {
         this.objectMapper = objectMapper;
-        this.reader = new BufferedReader(reader);
+        this.reader = new BufferedReader(new InputStreamReader(input));
     }
 
     @Override

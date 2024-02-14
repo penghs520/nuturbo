@@ -1,6 +1,5 @@
 package cn.nuturbo.card.query.vo;
 
-import cn.nuturbo.common.origintype.FieldId;
 import cn.nuturbo.common.origintype.Path;
 import lombok.Getter;
 

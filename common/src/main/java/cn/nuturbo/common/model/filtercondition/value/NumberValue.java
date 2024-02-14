@@ -1,8 +1,8 @@
 package cn.nuturbo.common.model.filtercondition.value;
 
-import cn.nuturbo.common.origintype.FieldId;
-import cn.nuturbo.common.utils.Asserts;
 import cn.nuturbo.common.model.filtercondition.ReferOn;
+import cn.nuturbo.common.origintype.CustomFieldId;
+import cn.nuturbo.common.utils.Asserts;
 import lombok.Getter;
 
 /**
@@ -27,11 +27,11 @@ public non-sealed interface NumberValue extends Value {
     class ReferNumber implements NumberValue {
 
         private final ReferOn referOn;
-        private final FieldId fieldID;
+        private final CustomFieldId customFieldId;
 
-        public ReferNumber(ReferOn referOn, FieldId fieldID) {
-            this.referOn = Asserts.notNull(referOn, "referOn of ReferNumber can not be null.");
-            this.fieldID = Asserts.notNull(fieldID, "fieldID of ReferNumber can not be null.");
+        public ReferNumber(ReferOn referOn, CustomFieldId customFieldId) {
+            this.referOn = Asserts.notNull(referOn, "referOn is required");
+            this.customFieldId = Asserts.notNull(customFieldId, "customFieldId is required");
         }
     }
 

@@ -1,15 +1,18 @@
 package cn.nuturbo.common.origintype;
+
 import cn.nuturbo.common.utils.Asserts;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by penghs at 2023/11/21 15:39
  */
 public class MemberId extends Identity {
 
-    @JsonCreator
-    public MemberId(@JsonProperty("value") String value) {
+    //for se/de
+    private MemberId() {
+
+    }
+
+    public MemberId(String value) {
         super(value);
     }
 

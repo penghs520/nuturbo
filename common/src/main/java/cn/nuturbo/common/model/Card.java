@@ -2,6 +2,9 @@ package cn.nuturbo.common.model;
 
 import cn.nuturbo.common.origintype.*;
 import cn.nuturbo.common.utils.Asserts;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -23,10 +26,22 @@ public class Card {
     private final Long createTime;
     private Long updateTime;
     private String description;
-    private final Map<FieldId, FieldValue> fieldValueMap;
+    private final Map<CustomFieldId, FieldValue> fieldValueMap;
     private final Map<Path, Set<Card>> relatedCardMap;
 
-    public Card(CardId id, CardTypeId cardTypeId, String name, OrgId orgId, String code, CardState cardState, IssueStatus issueStatus, Long createTime, Long updateTime, String description, Map<FieldId, FieldValue> fieldValueMap, Map<Path, Set<Card>> relatedCardMap) {
+    @JsonCreator
+    public Card(@JsonProperty("id") CardId id,
+                @JsonProperty("cardTypeId") CardTypeId cardTypeId,
+                @JsonProperty("name") String name,
+                @JsonProperty("orgId") OrgId orgId,
+                @JsonProperty("code") String code,
+                @JsonProperty("cardState") CardState cardState,
+                @JsonProperty("issueStatus") IssueStatus issueStatus,
+                @JsonProperty("createTime") Long createTime,
+                @JsonProperty("updateTime") Long updateTime,
+                @JsonProperty("description") String description,
+                @JsonProperty("fieldValueMap") Map<CustomFieldId, FieldValue> fieldValueMap,
+                @JsonProperty("relatedCardMap") Map<Path, Set<Card>> relatedCardMap) {
         this.id = Asserts.notNull(id, "id is required");
         this.cardTypeId = Asserts.notNull(cardTypeId, "cardTypeId is required");
         this.name = Asserts.notNull(name, "name is required");
@@ -34,7 +49,7 @@ public class Card {
         this.code = Asserts.notNull(code, "code is required");
         this.cardState = Asserts.notNull(cardState, "cardState of vertex can not be null");
         this.description = description;
-        if (isIssueCard()) {
+        if (CardTypeId.isIssueType(cardTypeId)) {
             this.issueStatus = Asserts.notNull(issueStatus, "issueStatus of issue card can not be null");
         } else {
             this.issueStatus = null;
@@ -43,10 +58,6 @@ public class Card {
         this.updateTime = Asserts.notNull(updateTime, "updateTime of vertex can not be null");
         this.fieldValueMap = fieldValueMap != null ? new HashMap<>(fieldValueMap) : new HashMap<>();
         this.relatedCardMap = relatedCardMap != null ? new HashMap<>(relatedCardMap) : new HashMap<>();
-    }
-
-    public boolean isIssueCard() {
-        return CardTypeId.isIssueType(cardTypeId);
     }
 
     public Card setName(String name) {

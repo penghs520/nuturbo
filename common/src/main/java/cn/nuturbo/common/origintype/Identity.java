@@ -15,6 +15,11 @@ public abstract class Identity implements Serializable, SqlValue {
 
     private final String value;
 
+    //for se/de
+    protected Identity() {
+        this.value = null;
+    }
+
     public Identity(String value) {
         Asserts.notBlank(value, "Identity value can't be blank");
         this.checkFormat(value);

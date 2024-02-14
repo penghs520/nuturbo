@@ -5,25 +5,24 @@ import org.apache.dubbo.common.serialize.ObjectOutput;
 
 import java.io.*;
 
-/**
- * Created by penghs at 2024/2/14 18:17
- */
+
 public class JacksonObjectOutput implements ObjectOutput {
 
     private final ObjectMapper objectMapper;
 
-    // private final PrintWriter writer;//TODO 性能测试、优化
-    private final BufferedOutputStream os;
-
-    private static final int BUFFER_SIZE = 256;//TODO 性能测试
+    private final PrintWriter writer;
 
     public JacksonObjectOutput(OutputStream output) {
         this(new ObjectMapper(), output);
     }
 
     public JacksonObjectOutput(ObjectMapper objectMapper, OutputStream out) {
+        this(objectMapper, new OutputStreamWriter(out));
+    }
+
+    public JacksonObjectOutput(ObjectMapper objectMapper, Writer writer) {
         this.objectMapper = objectMapper;
-        this.os = new BufferedOutputStream(out, BUFFER_SIZE);
+        this.writer = new PrintWriter(writer);
     }
 
     @Override
@@ -68,24 +67,24 @@ public class JacksonObjectOutput implements ObjectOutput {
 
     @Override
     public void writeBytes(byte[] v) throws IOException {
-        os.write(v);
+        writer.println(new String(v));
     }
 
     @Override
     public void writeBytes(byte[] v, int off, int len) throws IOException {
-        os.write(v, off, len);
+        writer.println(new String(v));
     }
 
     @Override
     public void writeObject(Object obj) throws IOException {
-        byte[] bytes = objectMapper.writeValueAsBytes(obj);
-        os.write(bytes, 0, bytes.length);
-        //os.flush();
+        writer.write(objectMapper.writeValueAsString(obj));
+        writer.println();
+        writer.flush();
     }
 
     @Override
     public void flushBuffer() throws IOException {
-        os.flush();
+        writer.flush();
     }
 }
 

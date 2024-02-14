@@ -9,8 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class CardTypeId extends SchemaId {
 
-    @JsonCreator
-    public CardTypeId(@JsonProperty("value") String value) {
+    //for se/de
+    private CardTypeId() {
+
+    }
+
+    public CardTypeId(String value) {
         super(value);
     }
 

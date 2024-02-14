@@ -5,6 +5,11 @@ package cn.nuturbo.common.origintype;
  */
 public abstract class SchemaId extends Identity {
 
+    //for se/de
+    protected SchemaId() {
+
+    }
+
     public SchemaId(String value) {
         super(value);
     }

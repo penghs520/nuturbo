@@ -1,6 +1,6 @@
 package cn.nuturbo.common.model.filtercondition.subject;
 
-import cn.nuturbo.common.origintype.FieldId;
+import cn.nuturbo.common.origintype.CustomFieldId;
 import cn.nuturbo.common.origintype.Path;
 import cn.nuturbo.common.utils.Asserts;
 import lombok.Getter;
@@ -12,10 +12,10 @@ import lombok.Getter;
 public final class NumberSubject implements Subject {
 
     private final Path path;
-    private final FieldId fieldID;
+    private final CustomFieldId fieldID;
     private final String name;
 
-    public NumberSubject(Path path, FieldId fieldID, String name) {
+    public NumberSubject(Path path, CustomFieldId fieldID, String name) {
         this.path = path;
         this.fieldID = Asserts.notNull(fieldID, "fieldID of NumberSubject can not be null.");
         this.name = name;

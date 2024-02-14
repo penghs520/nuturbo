@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FilterId extends SubassemblyId {
 
     @JsonCreator
-    public FilterId(@JsonProperty("value") String value) {
+    public FilterId(String value) {
         super(value);
     }
 
