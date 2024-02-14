@@ -1,5 +1,8 @@
 package cn.nuturbo.common.vo;
 
+import cn.nuturbo.common.utils.Asserts;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 /**
@@ -12,22 +15,19 @@ public class Response<T> {
     private final String detailMessage;
     private final T data;
 
-    public Response(Code code, String detailMessage, T data) {
-        this.code = code;
+    @JsonCreator
+    public Response(@JsonProperty("code") Code code, @JsonProperty("detailMessage") String detailMessage, @JsonProperty("data") T data) {
+        this.code = Asserts.notNull(code, "code of response can not be null");
         this.detailMessage = detailMessage;
         this.data = data;
     }
 
     public Response(Code code, String detailMessage) {
-        this.code = code;
-        this.detailMessage = detailMessage;
-        this.data = null;
+        this(code, detailMessage, null);
     }
 
     public Response(Code code) {
-        this.code = code;
-        this.detailMessage = code.message;
-        this.data = null;
+        this(code, code.message, null);
     }
 
     public static <T> Response<T> success(T data) {
