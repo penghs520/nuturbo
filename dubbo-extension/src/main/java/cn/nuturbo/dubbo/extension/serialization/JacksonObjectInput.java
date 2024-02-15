@@ -1,4 +1,4 @@
-package cn.nuturbo.dubbo.extension;
+package cn.nuturbo.dubbo.extension.serialization;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -2,9 +2,7 @@ package cn.nuturbo.card.api.request;
 
 import cn.nuturbo.card.api.dto.FieldValueDTO;
 import cn.nuturbo.common.origintype.CardTypeId;
-import cn.nuturbo.common.origintype.MemberId;
 import cn.nuturbo.common.utils.Asserts;
-import cn.nuturbo.common.vo.BaseRequest;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -16,7 +14,7 @@ import java.util.List;
  * 创建卡片请求
  */
 @Getter
-public class CreateCardRequest extends BaseRequest {
+public class CreateCardRequest {
 
     private final CardTypeId cardTypeId;
     private final String cardName;
@@ -24,12 +22,10 @@ public class CreateCardRequest extends BaseRequest {
     private final List<FieldValueDTO> fieldValues;
 
     @JsonCreator
-    public CreateCardRequest(@JsonProperty("memberId") MemberId memberId,
-                             @JsonProperty("cardTypeId") CardTypeId cardTypeId,
+    public CreateCardRequest(@JsonProperty("cardTypeId") CardTypeId cardTypeId,
                              @JsonProperty("cardName") String cardName,
                              @JsonProperty("description") String description,
                              @JsonProperty("fieldValues") List<FieldValueDTO> fieldValues) {
-        super(memberId);
         this.cardTypeId = Asserts.notNull(cardTypeId, "cardTypeId is required");
         this.cardName = Asserts.notNull(cardName, "cardName is required");
         this.description = description;

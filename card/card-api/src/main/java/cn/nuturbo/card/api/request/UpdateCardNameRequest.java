@@ -1,8 +1,6 @@
 package cn.nuturbo.card.api.request;
 
-import cn.nuturbo.common.origintype.MemberId;
 import cn.nuturbo.common.utils.Asserts;
-import cn.nuturbo.common.vo.BaseRequest;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -11,13 +9,12 @@ import lombok.Getter;
  * Created by penghs at 2024/2/14 11:09
  */
 @Getter
-public class UpdateCardNameRequest extends BaseRequest {
+public class UpdateCardNameRequest {
 
     private final String cardName;
 
     @JsonCreator
-    protected UpdateCardNameRequest(@JsonProperty("memberId") MemberId memberId, @JsonProperty("cardName") String cardName) {
-        super(memberId);
+    protected UpdateCardNameRequest(@JsonProperty("cardName") String cardName) {
         this.cardName = Asserts.notNull(cardName, "cardName is required");
     }
 }

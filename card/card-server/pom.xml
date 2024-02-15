@@ -35,7 +35,7 @@
         </dependency>
         <dependency>
             <groupId>cn.nuturbo</groupId>
-            <artifactId>jackson-serialization</artifactId>
+            <artifactId>dubbo-extension</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

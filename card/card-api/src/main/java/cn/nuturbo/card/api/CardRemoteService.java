@@ -2,7 +2,9 @@ package cn.nuturbo.card.api;
 
 import cn.nuturbo.card.api.request.CreateCardRequest;
 import cn.nuturbo.common.model.Card;
-import cn.nuturbo.common.vo.Response;
+import cn.nuturbo.common.vo.Operator;
+import cn.nuturbo.common.vo.Result;
+import lombok.NonNull;
 
 /**
  * Created by penghs at 2024/2/14 6:02
@@ -10,7 +12,7 @@ import cn.nuturbo.common.vo.Response;
 public interface CardRemoteService {
 
     //新建卡片
-    Response<Card> createCard(CreateCardRequest createCardRequest);
+    Result<Card> createCard(@NonNull CreateCardRequest createCardRequest, @NonNull Operator operator) throws Exception;
 
     //归档卡片
 

@@ -1,0 +1,1 @@
+customExceptionFilter=cn.nuturbo.dubbo.extension.filter.CustomExceptionFilter
