@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class JwtUtil {
 
     private static final String secret_key = "secretkey";
-    private static final long token_expire_millis = 60 * 60 * 1000;
+    private static final long token_expire_millis = 60*60*1000;
 
     private final JwtParser jwtParser;
 
@@ -30,7 +30,7 @@ public class JwtUtil {
 
     public String createToken(User user) {
         Claims claims = Jwts.claims().setSubject(user.getUsername());
-        Date tokenExpireTime = new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(token_expire_millis));
+        Date tokenExpireTime = new Date(System.currentTimeMillis() + token_expire_millis);
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(tokenExpireTime)
