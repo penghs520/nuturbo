@@ -1,6 +1,5 @@
 package cn.nuturbo.gateway.utils;
 
-import cn.nuturbo.gateway.domain.LoginUser;
 import cn.nuturbo.gateway.domain.User;
 import io.jsonwebtoken.*;
 import org.springframework.security.core.AuthenticationException;
@@ -17,25 +16,24 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class JwtUtil {
 
-    private final String secret_key = "secretkey";
-    private static final long accessTokenValidity = 60*60*1000;
+    private static final String secret_key = "secretkey";
+    private static final long token_expire_millis = 60 * 60 * 1000;
 
     private final JwtParser jwtParser;
 
     private static final String TOKEN_HEADER = "Authorization";
     private static final String TOKEN_PREFIX = "Bearer ";
 
-    public JwtUtil(){
+    public JwtUtil() {
         this.jwtParser = Jwts.parser().setSigningKey(secret_key);
     }
 
     public String createToken(User user) {
         Claims claims = Jwts.claims().setSubject(user.getUsername());
-        Date tokenCreateTime = new Date();
-        Date tokenValidity = new Date(tokenCreateTime.getTime() + TimeUnit.MINUTES.toMillis(accessTokenValidity));
+        Date tokenExpireTime = new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(token_expire_millis));
         return Jwts.builder()
                 .setClaims(claims)
-                .setExpiration(tokenValidity)
+                .setExpiration(tokenExpireTime)
                 .signWith(SignatureAlgorithm.HS256, secret_key)
                 .compact();
     }
