@@ -2,6 +2,7 @@ package cn.nuturbo.gateway.service.login;
 
 import cn.nuturbo.gateway.domain.LoginUser;
 import cn.nuturbo.gateway.domain.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,7 +19,11 @@ public class LoginUserDetailsService implements UserDetailsService {
         //查询用户信息
         User user = getUserInMemory(username);
 
-        LoginUser loginUser = new LoginUser(user);
+        if (user == null) {
+            throw new UsernameNotFoundException("用户不存在");
+        }
+
+        LoginUser loginUser = new LoginUser(user, true);
 
         //填充用户的权限信息
 

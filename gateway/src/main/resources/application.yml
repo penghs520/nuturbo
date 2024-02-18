@@ -13,3 +13,6 @@ dubbo:
     address: zookeeper://${zookeeper.address:127.0.0.1:2181}
   consumer:
     check: false
+
+jwt:
+  expireTime: 1800 # 单位分钟

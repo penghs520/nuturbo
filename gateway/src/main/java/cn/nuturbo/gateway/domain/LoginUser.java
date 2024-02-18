@@ -1,10 +1,11 @@
 package cn.nuturbo.gateway.domain;
 
 import cn.nuturbo.common.utils.Asserts;
-import cn.nuturbo.gateway.domain.User;
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -12,14 +13,16 @@ import java.util.List;
  * Created by penghs at 2024/2/17 15:10
  */
 @Setter
+@Getter
 public class LoginUser implements UserDetails {
 
     private final User user;
     private List<GrantedAuthority> authorities;
-    private int expireTime;
+    private final boolean accountNonExpired;
 
-    public LoginUser(User user) {
+    public LoginUser(User user,boolean accountNonExpired) {
         this.user = Asserts.notNull(user, "user can not be null.");
+        this.accountNonExpired = accountNonExpired;
     }
 
     @Override
@@ -49,7 +52,7 @@ public class LoginUser implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return this.accountNonExpired;
     }
 
     @Override
