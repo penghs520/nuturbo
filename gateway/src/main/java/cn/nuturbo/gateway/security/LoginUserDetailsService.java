@@ -1,8 +1,7 @@
-package cn.nuturbo.gateway.service.login;
+package cn.nuturbo.gateway.security;
 
 import cn.nuturbo.gateway.domain.LoginUser;
 import cn.nuturbo.gateway.domain.User;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

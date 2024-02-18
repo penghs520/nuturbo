@@ -1,4 +1,4 @@
-package cn.nuturbo.gateway.service.login;
+package cn.nuturbo.gateway.security;
 
 import cn.nuturbo.common.vo.Result;
 import cn.nuturbo.gateway.domain.LoginUser;

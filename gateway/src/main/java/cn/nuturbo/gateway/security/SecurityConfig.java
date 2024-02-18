@@ -1,6 +1,5 @@
-package cn.nuturbo.gateway.config;
+package cn.nuturbo.gateway.security;
 
-import cn.nuturbo.gateway.service.login.LoginUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,18 +11,21 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Created by penghs at 2024/2/18 8:05
  */
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class SecurityConfig {
 
     private final LoginUserDetailsService loginUserDetailsService;
+    private final JwtAuthorizationFilter jwtAuthorizationFilter;
 
-    public WebSecurityConfig(LoginUserDetailsService loginUserDetailsService) {
+    public SecurityConfig(LoginUserDetailsService loginUserDetailsService, JwtAuthorizationFilter jwtAuthorizationFilter) {
         this.loginUserDetailsService = loginUserDetailsService;
+        this.jwtAuthorizationFilter = jwtAuthorizationFilter;
     }
 
     @Bean
@@ -42,7 +44,9 @@ public class WebSecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
