@@ -11,7 +11,7 @@ public class ObjectMapperUtil {
     @Getter
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public <T> T readValue(String content, Class<T> valueType) {
+    public static  <T> T readValue(String content, Class<T> valueType) {
         try {
             return objectMapper.readValue(content, valueType);
         } catch (Exception e) {
@@ -19,7 +19,7 @@ public class ObjectMapperUtil {
         }
     }
 
-    public String writeValueAsString(Object value) {
+    public static String writeValueAsString(Object value) {
         try {
             return objectMapper.writeValueAsString(value);
         } catch (Exception e) {

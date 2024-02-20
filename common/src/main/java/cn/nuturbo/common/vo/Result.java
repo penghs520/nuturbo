@@ -1,6 +1,7 @@
 package cn.nuturbo.common.vo;
 
 import cn.nuturbo.common.utils.Asserts;
+import cn.nuturbo.common.utils.ObjectMapperUtil;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -59,7 +60,10 @@ public class Result<T> {
             this.code = code;
             this.message = message;
         }
+    }
 
+    public String toJsonString() {
+        return ObjectMapperUtil.writeValueAsString(this);
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.nuturbo.gateway.request;
+package cn.nuturbo.gateway.entity.vo.request;
 
 import cn.nuturbo.common.utils.Asserts;
 import com.fasterxml.jackson.annotation.JsonCreator;

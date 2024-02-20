@@ -1,4 +1,4 @@
-package cn.nuturbo.gateway.vo;
+package cn.nuturbo.gateway.entity.vo.response;
 
 import cn.nuturbo.common.utils.Asserts;
 import lombok.Getter;
