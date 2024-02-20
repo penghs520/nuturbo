@@ -88,8 +88,9 @@ public class JwtUtil {
 
     public UserDetails toUserDetails(Claims claims) {
         return User
-                .withUsername(claims.get("name", String.class))
-                .authorities(claims.get("authorities", Collection.class))
+                .withUsername(claims.get("sub", String.class))
+                .password("******")//密码不能给null，所以给个假的
+                .authorities("USER")
                 .build();
     }
 }
