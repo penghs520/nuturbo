@@ -1,6 +1,6 @@
 package cn.nuturbo.card.storage;
 
-import cn.nuturbo.common.model.Card;
+import cn.nuturbo.card.api.entity.model.Card;
 import cn.nuturbo.common.origintype.CardId;
 
 /**

@@ -2,7 +2,7 @@ package cn.nuturbo.gateway;
 
 import cn.nuturbo.card.api.CardRemoteService;
 import cn.nuturbo.card.api.request.CreateCardRequest;
-import cn.nuturbo.common.model.Card;
+import cn.nuturbo.card.api.entity.model.Card;
 import cn.nuturbo.common.origintype.CardTypeId;
 import cn.nuturbo.common.origintype.MemberId;
 import cn.nuturbo.common.origintype.OrgId;

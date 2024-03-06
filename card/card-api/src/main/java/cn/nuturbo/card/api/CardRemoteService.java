@@ -1,7 +1,7 @@
 package cn.nuturbo.card.api;
 
 import cn.nuturbo.card.api.request.CreateCardRequest;
-import cn.nuturbo.common.model.Card;
+import cn.nuturbo.card.api.entity.model.Card;
 import cn.nuturbo.common.vo.Operator;
 import cn.nuturbo.common.vo.Result;
 import lombok.NonNull;

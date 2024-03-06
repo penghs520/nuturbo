@@ -1,4 +1,4 @@
-package cn.nuturbo.common.model;
+package cn.nuturbo.card.api.entity.model;
 
 import cn.nuturbo.common.origintype.RelationTypeId;
 import cn.nuturbo.common.origintype.CardId;

@@ -1,6 +1,6 @@
 package cn.nuturbo.card.api.request;
 
-import cn.nuturbo.card.api.dto.FieldValueDTO;
+import cn.nuturbo.card.api.entity.dto.FieldValueDTO;
 import cn.nuturbo.common.origintype.CardTypeId;
 import cn.nuturbo.common.utils.Asserts;
 import com.fasterxml.jackson.annotation.JsonCreator;

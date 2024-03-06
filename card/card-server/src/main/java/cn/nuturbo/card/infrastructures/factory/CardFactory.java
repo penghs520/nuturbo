@@ -1,6 +1,6 @@
 package cn.nuturbo.card.infrastructures.factory;
 
-import cn.nuturbo.common.model.Card;
+import cn.nuturbo.card.api.entity.model.Card;
 import cn.nuturbo.common.origintype.*;
 import org.springframework.stereotype.Service;
 

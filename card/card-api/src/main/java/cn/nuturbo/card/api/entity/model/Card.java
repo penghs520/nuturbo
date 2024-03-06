@@ -1,9 +1,9 @@
-package cn.nuturbo.common.model;
+package cn.nuturbo.card.api.entity.model;
 
+import cn.nuturbo.card.api.entity.model.customfieldvalue.CustomFieldValue;
 import cn.nuturbo.common.origintype.*;
 import cn.nuturbo.common.utils.Asserts;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
@@ -26,7 +26,7 @@ public class Card {
     private final Long createTime;
     private Long updateTime;
     private String description;
-    private final Map<CustomFieldId, FieldValue> fieldValueMap;
+    private final Map<CustomFieldId, CustomFieldValue> fieldValueMap;
     private final Map<Path, Set<Card>> relatedCardMap;
 
     @JsonCreator
@@ -40,7 +40,7 @@ public class Card {
                 @JsonProperty("createTime") Long createTime,
                 @JsonProperty("updateTime") Long updateTime,
                 @JsonProperty("description") String description,
-                @JsonProperty("fieldValueMap") Map<CustomFieldId, FieldValue> fieldValueMap,
+                @JsonProperty("fieldValueMap") Map<CustomFieldId, CustomFieldValue> fieldValueMap,
                 @JsonProperty("relatedCardMap") Map<Path, Set<Card>> relatedCardMap) {
         this.id = Asserts.notNull(id, "id is required");
         this.cardTypeId = Asserts.notNull(cardTypeId, "cardTypeId is required");

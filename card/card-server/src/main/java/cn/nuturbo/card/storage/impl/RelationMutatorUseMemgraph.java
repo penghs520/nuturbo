@@ -1,7 +1,7 @@
 package cn.nuturbo.card.storage.impl;
 
 import cn.nuturbo.card.storage.RelationMutator;
-import cn.nuturbo.common.model.Relation;
+import cn.nuturbo.card.api.entity.model.Relation;
 import cn.nuturbo.common.origintype.RelationTypeId;
 import cn.nuturbo.common.origintype.CardId;
 
