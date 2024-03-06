@@ -1,8 +1,6 @@
 package cn.nuturbo.common.origintype;
 
 import cn.nuturbo.common.utils.Asserts;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by penghs at 2023/11/21 15:45
@@ -20,7 +18,7 @@ public class CardTypeId extends SchemaId {
 
     @Override
     public SchemaType schemaType() {
-        return SchemaType.VertexType;
+        return SchemaType.CardType;
     }
 
     @Override

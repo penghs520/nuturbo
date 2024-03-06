@@ -2,15 +2,14 @@ package cn.nuturbo.common.origintype;
 
 import cn.nuturbo.common.utils.Asserts;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by penghs at 2023/11/21 15:51
  */
-public class FilterId extends SubassemblyId {
+public class ConditionId extends SubassemblyId {
 
     @JsonCreator
-    public FilterId(String value) {
+    public ConditionId(String value) {
         super(value);
     }
 

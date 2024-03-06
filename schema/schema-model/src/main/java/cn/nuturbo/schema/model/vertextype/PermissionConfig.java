@@ -1,6 +1,6 @@
 package cn.nuturbo.schema.model.vertextype;
 
-import cn.nuturbo.common.origintype.FilterId;
+import cn.nuturbo.common.origintype.ConditionId;
 import cn.nuturbo.schema.model.PromptTemplate;
 import lombok.Getter;
 
@@ -14,12 +14,12 @@ public class PermissionConfig {
 
     //TODO 字段权限、卡片操作权限
 
-    private final FilterId filterId;
+    private final ConditionId conditionId;
 
     private final PromptTemplate promptTemplate;
 
-    public PermissionConfig(FilterId filterId, PromptTemplate promptTemplate) {
-        this.filterId = filterId;
+    public PermissionConfig(ConditionId conditionId, PromptTemplate promptTemplate) {
+        this.conditionId = conditionId;
         this.promptTemplate = promptTemplate;
     }
 }
