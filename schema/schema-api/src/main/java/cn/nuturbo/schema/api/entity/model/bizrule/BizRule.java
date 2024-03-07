@@ -9,6 +9,9 @@ import lombok.Getter;
 
 import java.util.List;
 
+/**
+ * TODO 关于更多：1、能不能根据业务规则定义 反向输出业务流程图
+ */
 @Getter
 public abstract class BizRule extends Schema<BizRuleId> {
 
