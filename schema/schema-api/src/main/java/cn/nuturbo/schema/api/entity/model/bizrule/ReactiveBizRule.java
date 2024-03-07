@@ -3,7 +3,7 @@ package cn.nuturbo.schema.api.entity.model.bizrule;
 import cn.nuturbo.common.origintype.CardTypeId;
 import cn.nuturbo.common.origintype.ConditionId;
 import cn.nuturbo.common.origintype.OrgId;
-import cn.nuturbo.schema.api.entity.model.action.InternalAction;
+import cn.nuturbo.schema.api.entity.model.action.ActionItem;
 import lombok.Getter;
 
 import java.util.List;
@@ -18,10 +18,10 @@ import java.util.List;
 @Getter
 public class ReactiveBizRule extends BizRule {
 
-    private final List<InternalAction> executeActions;
+    private final List<ActionItem> executeActionItems;
 
-    protected ReactiveBizRule(BizRuleId id, OrgId orgId, String name, String description, CardTypeId cardTypeId, ConditionId effectCondition, ListenEvent listenEvent, List<InternalAction> executeActions) {
+    protected ReactiveBizRule(BizRuleId id, OrgId orgId, String name, String description, CardTypeId cardTypeId, ConditionId effectCondition, ListenEvent listenEvent, List<ActionItem> executeActionItems) {
         super(id, orgId, name, description, cardTypeId, effectCondition, listenEvent);
-        this.executeActions = executeActions;
+        this.executeActionItems = executeActionItems;
     }
 }
